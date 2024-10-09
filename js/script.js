@@ -31,12 +31,59 @@ async function loadGraph(file) {
 function findShortestPath() {
   const source = parseInt(document.getElementById('source').value);
   const target = parseInt(document.getElementById('target').value);
+ 
+  // Inicialização do algoritmo de Dijkstra
+  const distances = {};
+  const previous = {};
+  const visited = new Set();
+  const nodes = [...data.nodes]; // Criar uma cópia para não modificar o original
 
-  // Implementar o algoritmo de Dijkstra aqui
-  // ...
+  nodes.forEach(node => {
+    distances[node.id] = Infinity;
+    previous[node.id] = null;
+  });
+  distances[source] = 0;
 
-  // Visualizar o caminho mínimo no grafo
-  // ...
+  while (nodes.length > 0) {
+    // Encontrar o vértice não visitado com a menor distância
+    let closest = null;
+    for (let node of nodes) {
+      if (closest === null || distances[node.id] < distances[closest.id]) {
+        closest = node;
+      }
+    }
+
+    // Remover o vértice mais próximo da lista de não visitados
+    nodes.splice(nodes.indexOf(closest), 1);
+    visited.add(closest.id);
+
+    // Atualizar as distâncias dos vizinhos
+    const neighbors = network.getNeighbors(closest.id);
+    for (let neighbor of neighbors) {
+      const edge = network.getEdge(closest.id, neighbor);
+      const alt = distances[closest.id] + edge.weight;
+      if (alt < distances[neighbor]) {
+        distances[neighbor] = alt;
+        previous[neighbor] = closest.id;
+      }
+    }
+  }
+
+  // Construir o caminho
+  const path = [];
+  let current = target;
+  while (current != null) {
+    path.unshift(current);
+    current = previous[current];
+  }
+
+  // Visualizar o caminho mínimo
+  const highlightedEdges = [];
+  for (let i = 0; i < path.length - 1; i++) {
+    highlightedEdges.push({ from: path[i], to: path[i + 1] });
+  }
+  network.setOptions({ edges: { color: { color: '#ff0000' } } });
+  network.setData({ edges: [...data.edges, ...highlightedEdges] });
 }
 
 // Carregar o grafo inicial
