@@ -4,7 +4,17 @@ const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
-const options = { };
+const options = {
+  nodes:{
+    color: '#ff0000',
+    fixed: false,
+    font: '12px arial red',
+    scaling: {
+      label: true
+    },
+    shadow: true
+  } 
+};
 const graph ={};
 
 // Função para ler o arquivo e criar o grafo
