@@ -4,28 +4,7 @@ const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
-const options = {  
-    nodes: {
-      font: {
-        size: 16,
-        color: 'black'
-      },
-      shape: 'circle',
-      borderWidth: 2
-    },
-    edges: {
-      color: {
-        color: 'blue'
-      },
-      width: 2
-    },
-    physics: {
-      enabled: true,
-      forceAtlas2Based: {
-        gravitationalConstant: -50
-      }
-    }
- };
+const options = { };
 
 
 // Função para ler o arquivo e criar o grafo
