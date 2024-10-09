@@ -4,7 +4,7 @@ const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
 const options = {};
-const network = { nodes: [], edges: [] };
+
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
@@ -25,8 +25,7 @@ async function loadGraph(file) {
   });
 
   // Criar a visualização do grafo
-  
-  network = new vis.Network(container, data, options);
+  const network = new vis.Network(container, data, options);
 }
 
 // Função para encontrar o caminho mínimo
