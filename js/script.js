@@ -4,46 +4,7 @@ const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
-const options = {
-  edges:{
-    arrows: 'from, to, middle',
-    color: {
-      color:'#848484',
-      highlight:'#848484',
-      hover: '#848484',
-      inherit: 'from',
-      opacity:1.0
-    },
-    font: '12px arial #ff0000',
-    scaling:{
-      label: true,
-    },
-    shadow: true,
-    smooth: true,
-  },
-  nodes:{
-    color: {
-      border: '#2B7CE9',
-      background: '#97C2FC',
-      highlight: {
-        border: '#2B7CE9',
-        background: '#D2E5FF'
-      },
-      hover: {
-        border: '#2B7CE9',
-        background: '#D2E5FF'
-      }
-    },
-    fixed: false,
-    font: '12px arial red',
-    scaling: {
-      label: true
-    },
-    shadow: true
-  } 
-};
-
-
+const options = {};
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
@@ -93,7 +54,8 @@ function findShortestPath() {
 
 // Função para converter o grafo de formato de lista de adjacências para o formato anterior (nós e arestas)
 function convertGraphToAdjacencyList(nodes, edges) {
-  let graph; 
+  const graph = {};
+
   // Inicializa o grafo com os nós
   nodes.forEach(node => {
       graph[node.id] = {};
