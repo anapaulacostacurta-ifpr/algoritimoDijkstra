@@ -135,7 +135,7 @@ function visualizeShortestPath(path, network, data) {
   }
 
   // Define as opções de visualização (arestas em vermelho)
-  network.setOptions({ edges: { color: { color: '#ff0000' } } });
+  network.options({ edges: { color: { color: '#ff0000' } } });
 
   // Atualiza os dados da visualização com as arestas destacadas
   network.setData({ edges: [...data.edges, ...highlightedEdges] });
