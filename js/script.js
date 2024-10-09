@@ -6,7 +6,7 @@ const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
 const options = {
   edges:{
-    arrows: 'to, from',
+    arrows: 'from, to, middle',
     color: {
       color:'#848484',
       highlight:'#848484',
@@ -43,7 +43,7 @@ const options = {
   } 
 };
 
-const graph = [];
+
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
@@ -77,7 +77,7 @@ function findShortestPath() {
   const source = parseInt(document.getElementById('source').value);
   const target = parseInt(document.getElementById('target').value);
  
-  graph = convertGraphToAdjacencyList(nodes, edges);
+  const graph = convertGraphToAdjacencyList(nodes, edges);
   
   const { distances, previous } = dijkstra(graph, source);
   
@@ -93,7 +93,7 @@ function findShortestPath() {
 
 // Função para converter o grafo de formato de lista de adjacências para o formato anterior (nós e arestas)
 function convertGraphToAdjacencyList(nodes, edges) {
-
+  let graph; 
   // Inicializa o grafo com os nós
   nodes.forEach(node => {
       graph[node.id] = {};
