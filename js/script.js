@@ -1,6 +1,5 @@
 // script.js
 
-const { network } = require("./vis");
 const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
@@ -52,7 +51,7 @@ async function loadGraph(file) {
   });
 
   // Criar a visualização do grafo
-  network = new vis.Network(container, data, options);
+  return network = new vis.Network(container, data, options);
 }
 
 // Função para encontrar o caminho mínimo
@@ -115,4 +114,4 @@ function findShortestPath() {
 }
 
 // Carregar o grafo inicial
-loadGraph('./assets/data.txt');
+const network = loadGraph('./assets/data.txt');
