@@ -87,4 +87,4 @@ function findShortestPath() {
 }
 
 // Carregar o grafo inicial
-loadGraph('../assets/data.txt');
+loadGraph('/assets/data.txt');
