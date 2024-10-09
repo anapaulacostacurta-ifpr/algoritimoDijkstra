@@ -43,7 +43,7 @@ const options = {
   } 
 };
 
-const graph ={};
+const graph = [];
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
