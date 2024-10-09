@@ -12,8 +12,7 @@ const options = {
         color: 'black'
       },
       shape: 'circle',
-      borderWidth: 2,
-      borderColor: 'gray'
+      borderWidth: 2
     },
     edges: {
       color: {
