@@ -48,7 +48,7 @@ function findShortestPath() {
   console.log("Caminho mínimo:", path); // Exibe o caminho mínimo
   
   // Suponha que 'network' e 'data' sejam as variáveis que representam o grafo visualizado
-  visualizeShortestPath(path); // Destaca o caminho mínimo na visualização
+  network.selectEdges(path); // Destaca o caminho mínimo na visualização
 }
 
 
@@ -124,23 +124,6 @@ function reconstructPath(previous, target) {
 
   return path;
 }
-
-// Função para visualizar o caminho mínimo no grafo
-function visualizeShortestPath(path) {
-  const highlightedEdges = [];
-
-  // Constrói as arestas que formam o caminho mínimo
-  for (let i = 0; i < path.length - 1; i++) {
-      highlightedEdges.push({ from: path[i], to: path[i + 1] });
-  }
-
-  // Define as opções de visualização (arestas em vermelho)
-  //network.setOptions({ edges: { color: { color: '#ff0000' } } });
-
-  // Atualiza os dados da visualização com as arestas destacadas
-  network.setData({ edges: [...data.edges, ...highlightedEdges] });
-}
-
 
 // Carregar o grafo inicial
 const network = (loadGraph('./assets/data.txt'));
