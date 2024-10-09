@@ -5,8 +5,35 @@ const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
 const options = {
+  edges:{
+    arrows: 'to, from',
+    color: {
+      color:'#848484',
+      highlight:'#848484',
+      hover: '#848484',
+      inherit: 'from',
+      opacity:1.0
+    },
+    font: '12px arial #ff0000',
+    scaling:{
+      label: true,
+    },
+    shadow: true,
+    smooth: true,
+  },
   nodes:{
-    color: '#ff0000',
+    color: {
+      border: '#2B7CE9',
+      background: '#97C2FC',
+      highlight: {
+        border: '#2B7CE9',
+        background: '#D2E5FF'
+      },
+      hover: {
+        border: '#2B7CE9',
+        background: '#D2E5FF'
+      }
+    },
     fixed: false,
     font: '12px arial red',
     scaling: {
@@ -15,6 +42,7 @@ const options = {
     shadow: true
   } 
 };
+
 const graph ={};
 
 // Função para ler o arquivo e criar o grafo
@@ -145,7 +173,7 @@ function visualizeShortestPath(path) {
   }
 
   // Define as opções de visualização (arestas em vermelho)
-  network.setOptions({ edges: { color: { color: '#ff0000' } } });
+  //network.setOptions({ edges: { color: { color: '#ff0000' } } });
 
   // Atualiza os dados da visualização com as arestas destacadas
   network.setData({ edges: [...data.edges, ...highlightedEdges] });
