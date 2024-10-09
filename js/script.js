@@ -5,6 +5,7 @@ const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
 const options = { };
+const graph ={};
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
@@ -38,7 +39,7 @@ function findShortestPath() {
   const source = parseInt(document.getElementById('source').value);
   const target = parseInt(document.getElementById('target').value);
  
-  const graph = convertGraphToAdjacencyList(nodes, edges);
+  graph = convertGraphToAdjacencyList(nodes, edges);
   
   const { distances, previous } = dijkstra(graph, source);
   
