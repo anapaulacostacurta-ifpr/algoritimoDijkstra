@@ -142,4 +142,4 @@ function visualizeShortestPath(path) {
 
 
 // Carregar o grafo inicial
-const network = (vis.Network) (loadGraph('./assets/data.txt'));
+const network = (loadGraph('./assets/data.txt'));
