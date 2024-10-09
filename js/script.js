@@ -18,10 +18,10 @@ async function loadGraph(file) {
       const source = parseInt(parts[0]);
       const target = parseInt(parts[1]);
       const weight = parseInt(parts[2]);
-      if(!nodes[source]){
+      if(!nodes.find(node => node.id === source)){
         nodes.push({ id: source });
       }
-      if(!nodes[target]){
+      if(!nodes.find(node => node.id === target)){
         nodes.push({ id: target });
       }
       edges.push({ from: source, to: target, weight });
