@@ -25,7 +25,7 @@ async function loadGraph(file) {
   });
 
   // Criar a visualização do grafo
-  network.setData({ nodes: [], edges: [] });
+  
   network = new vis.Network(container, data, options);
 }
 
