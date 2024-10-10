@@ -117,7 +117,7 @@ function reconstructPath(previous, target) {
   // Reconstroi o caminho, começando do nó de destino até o de origem
   while (current != null) {
       path.unshift(current);
-      if(!previous[current]){
+      if(previous[current] != null){
         current = previous[current].toString();
       }else{
         current = null;
