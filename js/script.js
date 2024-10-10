@@ -63,7 +63,7 @@ function visualizeShortestPath(path) {
   }
 
   // Atualiza os dados do grafo com as novas arestas destacadas
-  network.setData({ edges: [...data.edges, ...highlightedEdges] });
+  //network.setData({ edges: [...data.edges, ...highlightedEdges] });
 }
 
 
@@ -112,16 +112,12 @@ function dijkstra(start) {
 // Função para reconstruir o caminho mínimo
 function reconstructPath(previous, target) {
   const path = [];
-  let current = target;
+  let current = target.toString();
 
   // Reconstroi o caminho, começando do nó de destino até o de origem
   while (current != null) {
       path.unshift(current);
-      if(previous[current] != null){
-        current = previous[current].toString();
-      }else{
-        current = null;
-      }
+      current = previous[current];
   }
 
   return path;
