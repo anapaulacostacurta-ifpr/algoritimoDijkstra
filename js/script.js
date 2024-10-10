@@ -5,6 +5,7 @@ const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
 const options = {};
+const graph = {};
 
 // Função para ler o arquivo e criar o grafo
 async function loadGraph(file) {
@@ -20,12 +21,15 @@ async function loadGraph(file) {
       const weight = parseInt(parts[2]);
       if(!nodes.find(node => node.id === source)){
         nodes.push({ id: source});
-  
+        graph[source] = {};
       }
       if(!nodes.find(node => node.id === target)){
         nodes.push({ id: target});
+        graph[target] = {};
       }
       edges.push({ from: source, to: target, weight });
+      graph[source][target] = weight;
+      graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
     }
   });
 
@@ -38,9 +42,7 @@ function findShortestPath() {
   const source = parseInt(document.getElementById('source').value);
   const target = parseInt(document.getElementById('target').value);
  
-  const graph = convertGraphToAdjacencyList(nodes, edges);
-  
-  const { distances, previous } = dijkstra(graph, source);
+  const { distances, previous } = dijkstra(source);
   
   // Reconstrói o caminho mínimo de A até D
   const path = reconstructPath(previous, target);
@@ -48,33 +50,29 @@ function findShortestPath() {
   console.log("Caminho mínimo:", path); // Exibe o caminho mínimo
   
   // Suponha que 'network' e 'data' sejam as variáveis que representam o grafo visualizado
-  network.selectEdges(path); // Destaca o caminho mínimo na visualização
+  visualizeShortestPath(path); // Destaca o caminho mínimo na visualização
 }
 
+// Função para visualizar o caminho mínimo no grafo
+function visualizeShortestPath(path) {
+  const highlightedEdges = [];
 
-// Função para converter o grafo de formato de lista de adjacências para o formato anterior (nós e arestas)
-function convertGraphToAdjacencyList(nodes, edges) {
-  const graph = {};
+  // Constrói as arestas que formam o caminho mínimo
+  for (let i = 0; i < path.length - 1; i++) {
+      highlightedEdges.push({ from: path[i], to: path[i + 1], color: { color: '#ff0000' } }); // Define a cor
+  }
 
-  // Inicializa o grafo com os nós
-  nodes.forEach(node => {
-      graph[node.id] = {};
-  });
-
-  // Popula as arestas no formato de lista de adjacências
-  edges.forEach(edge => {
-      graph[edge.from][edge.to] = edge.weight;
-      graph[edge.to][edge.from] = edge.weight; // Supondo que o grafo seja não-direcionado
-  });
-
-  return graph;
+  // Atualiza os dados do grafo com as novas arestas destacadas
+  network.setData({ edges: [...data.edges, ...highlightedEdges] });
 }
+
 
 // Função de Dijkstra para calcular a menor distância
-function dijkstra(graph, start) {
+function dijkstra(start) {
   let distances = {};
   let previous = {}; // Armazena o nó anterior no caminho mais curto
   let visited = new Set();
+
   let nodes = Object.keys(graph);
 
   // Inicializa as distâncias como infinito e previous como nulo
@@ -126,4 +124,4 @@ function reconstructPath(previous, target) {
 }
 
 // Carregar o grafo inicial
-const network = (loadGraph('./assets/data.txt'));
+const network = loadGraph('./assets/data.txt');
