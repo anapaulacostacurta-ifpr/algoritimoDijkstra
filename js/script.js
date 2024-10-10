@@ -48,7 +48,7 @@ function findShortestPath() {
   const path = reconstructPath(previous, target);
 
   window.alert("Caminho mínimo: "+path); // Exibe o caminho mínimo
-  console.log("Caminho mínimo:", path)
+  console.log("Caminho mínimo:", path);
   
   // Suponha que 'network' e 'data' sejam as variáveis que representam o grafo visualizado
   visualizeShortestPath(path); // Destaca o caminho mínimo na visualização
