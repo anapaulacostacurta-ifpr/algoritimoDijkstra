@@ -24,7 +24,7 @@ async function loadGraph(file) {
         graph[source] = {};
       }
       if(!nodes.find(node => node.id === target)){
-        nodes.push({ id: target});
+        nodes.push({ id: target, label: target.toString()});
         graph[target] = {};
       }
       edges.push({ from: source, to: target, weight });
