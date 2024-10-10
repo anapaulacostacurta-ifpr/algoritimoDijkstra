@@ -73,7 +73,7 @@ function dijkstra(start) {
   let previous = {}; // Armazena o nó anterior no caminho mais curto
   let visited = new Set();
 
-  //let nodes = Object.keys(graph);
+  let nodes = Object.keys(graph);
 
   // Inicializa as distâncias como infinito e previous como nulo
   for (let node of nodes) {
