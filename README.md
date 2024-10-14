@@ -17,3 +17,7 @@ Exemplo:
 2. Requisitar o ponto de origem e de destino.
 3. Apresentar o menor caminho entre os dois pontos, com todos os pontos intermediários.
 4. Voltar ao 2.
+
+
+**REFÊRENCIAS:**
+VIS.JS. **BIBLIOTECA VIS NETWORK.** Disponível em: https://visjs.github.io/vis-network/docs/network/. Acesso em: 14/10/2024.
