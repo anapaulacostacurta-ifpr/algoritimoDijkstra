@@ -20,4 +20,4 @@ Exemplo:
 
 
 **REFÊRENCIAS:**
-VIS.JS. **BIBLIOTECA VIS NETWORK.** Disponível em: https://visjs.github.io/vis-network/docs/network/. Acesso em: 14/10/2024.
+[1] VIS.JS. **BIBLIOTECA VIS NETWORK.** Disponível em: https://visjs.github.io/vis-network/docs/network/. Acesso em: 14/10/2024.
