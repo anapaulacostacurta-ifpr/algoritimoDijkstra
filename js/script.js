@@ -38,7 +38,7 @@ async function loadGraph(file) {
       }
       edges.push({ from: source, to: target, weight, label:weight.toString() });
       graph[source][target] = weight;
-      graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
+      //graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
     }
   });
 
