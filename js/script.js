@@ -28,19 +28,32 @@ async function addGraph() {
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
-    const target = Math.floor(Math.random() * qtdeNos + 1);
+    const target = 1+1;
     const weight = 1;
     if(!nodes.find(node => node.id === source)){
       nodes.push({ id: source, label: source.toString()});
       graph[source] = {};
     }
+    graph[source][target] = weight;
     if(!nodes.find(node => node.id === target)){
       nodes.push({ id: target, label: target.toString()});
       graph[target] = {};
     }
-    edges.push({ from: source, to: target, weight, label:weight.toString() });
-    graph[source][target] = weight;
     graph[target][source] = weight; 
+
+    edges.push({ from: source, to: target, weight, label:weight.toString() });
+    target = target+3;
+    if(!nodes.find(node => node.id === source)){
+      nodes.push({ id: source, label: source.toString()});
+      graph[source] = {};
+    }
+    graph[source][target] = weight;
+    if(!nodes.find(node => node.id === target)){
+      nodes.push({ id: target, label: target.toString()});
+      graph[target] = {};
+    }
+    graph[target][source] = weight; 
+    edges.push({ from: source, to: target, weight, label:weight.toString() });
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
