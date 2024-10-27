@@ -1,9 +1,9 @@
 // script.js
 
-const nodes = [];
-const edges = [];
-const container = document.getElementById('mynetwork');
-const data = { nodes, edges };
+var nodes = [];
+var edges = [];
+var container = document.getElementById('mynetwork');
+var data = { nodes, edges };
 const options = 
 {
   edges:{
@@ -21,6 +21,8 @@ const graph = {};
 
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
+  node = [];
+  edges = [];
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
