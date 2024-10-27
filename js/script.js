@@ -23,7 +23,7 @@ var graph = {};
 async function addGraph() {
   nodes = [];
   edges = [];
-  data = {localnodes, localedges};
+  data = {nodes, edges};
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     var weight = 1;
