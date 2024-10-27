@@ -21,8 +21,7 @@ const graph = {};
 
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
-  nodes = [];
-  edges = [];
+  
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   const weight = 1;
   for (let i = 1; i < qtdeNos; i++) {
@@ -35,7 +34,7 @@ async function addGraph() {
     graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
   }
   // Criar a visualização do grafo
-  return new vis.Network(container, data, options);
+  new vis.Network(container, data, options);
 }
 
 
@@ -66,7 +65,7 @@ async function loadGraph() {
   });
 
   // Criar a visualização do grafo
-  return new vis.Network(container, data, options);
+  new vis.Network(container, data, options);
 }
 
 // Função para encontrar o caminho mínimo
