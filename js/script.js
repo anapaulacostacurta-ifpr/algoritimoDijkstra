@@ -27,7 +27,7 @@ async function addGraph() {
     var weight = 1;
     var source = i;
     target = Math.random *10 + 1;
-    carregarDados(source, target,weight);
+    carregarDados(source, target, weight);
     //carregarDados(source, source+1,weight);
   }
   // Criar a visualização do grafo
