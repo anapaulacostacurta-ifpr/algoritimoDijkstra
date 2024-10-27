@@ -21,7 +21,6 @@ const graph = {};
 
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
-  
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   const weight = 1;
   for (let i = 1; i < qtdeNos; i++) {
