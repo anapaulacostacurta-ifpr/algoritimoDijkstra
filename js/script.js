@@ -28,7 +28,7 @@ async function addGraph() {
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
-    const target = i+1;
+    const target = Math.floor(Math.random() * qtdeNos + 1);
     const weight = 1;
     if(!nodes.find(node => node.id === source)){
       nodes.push({ id: source, label: source.toString()});
