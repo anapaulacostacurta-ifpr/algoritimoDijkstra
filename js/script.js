@@ -25,11 +25,10 @@ async function addGraph() {
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     var weight = 1;
-    const parts = {};
     var source = i;
     target = Math.random *10 + 1;
     carregarDados(source, target,weight);
-    carregarDados(source, source+1,weight);
+    //carregarDados(source, source+1,weight);
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
