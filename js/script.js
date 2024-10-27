@@ -33,7 +33,7 @@ async function addGraph() {
     graph[source] = {};
     edges.push({ from: source, to: target, weight, label:weight.toString() });
     graph[source][target] = weight;
-    //graph[target][source] = weight; 
+    graph[target][source] = weight; 
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
