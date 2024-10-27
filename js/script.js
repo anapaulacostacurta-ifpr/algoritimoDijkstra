@@ -19,11 +19,14 @@ const options =
 };
 var graph = {};
 
+
+async function limparDados(){
+  nodes = [];
+  edges = [];   
+}
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
-  nodes = [];
-  edges = [];
-  data = {nodes, edges};
+  limparDados();
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     var weight = 1;
@@ -60,7 +63,7 @@ async function loadGraph() {
   new vis.Network(container, data, options);
 }
 
-function carregarDados(source, target, weight){
+async function carregarDados(source, target, weight){
   if(!nodes.find(node => node.id === source)){
     nodes.push({ id: source, label: source.toString()});
     graph[source] = {};
@@ -75,7 +78,7 @@ function carregarDados(source, target, weight){
 }
 
 // Função para encontrar o caminho mínimo
-function findShortestPath() {
+async function findShortestPath() {
   const source = parseInt(document.getElementById('source').value);
   const target = parseInt(document.getElementById('target').value);
  
@@ -92,7 +95,7 @@ function findShortestPath() {
 }
 
 // Função para visualizar o caminho mínimo no grafo
-function visualizeShortestPath(path) {
+async function visualizeShortestPath(path) {
   const highlightedEdges = [];
 
   // Constrói as arestas que formam o caminho mínimo
@@ -106,7 +109,7 @@ function visualizeShortestPath(path) {
 
 
 // Função de Dijkstra para calcular a menor distância
-function dijkstra(start) {
+async function dijkstra(start) {
   let distances = {};
   let previous = {}; // Armazena o nó anterior no caminho mais curto
   let visited = new Set();
@@ -148,7 +151,7 @@ function dijkstra(start) {
 }
 
 // Função para reconstruir o caminho mínimo
-function reconstructPath(previous, target) {
+async function reconstructPath(previous, target) {
   const path = [];
   let current = target.toString();
 
