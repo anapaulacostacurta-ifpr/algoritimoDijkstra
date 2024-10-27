@@ -4,7 +4,19 @@ const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
-const options = {};
+const options = 
+{
+  edges:{
+    arrows: {
+      to: {
+        enabled: true
+      },
+      from:{
+        enabled: true
+      }
+    }
+  }
+};
 const graph = {};
 
 // Função para ler o arquivo e criar o grafo
