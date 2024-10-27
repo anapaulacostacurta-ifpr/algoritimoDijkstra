@@ -4,19 +4,7 @@ const nodes = [];
 const edges = [];
 const container = document.getElementById('mynetwork');
 const data = { nodes, edges };
-const options = 
-{
-  edges:{
-    arrows: {
-      to: {
-        enabled: true
-      },
-      from:{
-        enabled: true
-      }
-    }
-  }
-};
+const options = {};
 const graph = {};
 
 // Função para ler o arquivo e criar o grafo
@@ -41,7 +29,7 @@ async function loadGraph(file) {
       }
       edges.push({ from: source, to: target, weight, label:weight.toString() });
       graph[source][target] = weight;
-      graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
+      //graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
     }
   });
 
