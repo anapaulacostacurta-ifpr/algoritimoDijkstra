@@ -34,6 +34,18 @@ Requisitos: implementar a descoberta da topologia de forma distribuída, mostrar
 Apresentar: grafo da rede, tabela de roteamento de cada um dos nós
 
 ## Fase 3 
+Sugestão ler o artigo:
+
+Z. Wang and J. Crowcroft. Quality-of-Service Routing for Supporting Multimedia Applications. IEEE JSAC, 14(7):1288--1234, September 1996.
+http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=536364
+
+1. Incluir no algoritmo de roteamento uma métrica de QoS :
+- Métrica aditiva: (ex.: atraso)
+- Métrica multiplicativa: (ex: probabilidade de perda)
+- Métrica côncava: (ex: taxa de transmissão)
+
+2. Incluir a mobilidade dos nós: nós incialmente em uma posição e podem se deslocar depois de um tempo. Não precisa ser todos os nós, e eles podem se deslocar de forma aleatória.
+
 
 **REFÊRENCIAS:**
 [1] VIS.JS. **BIBLIOTECA VIS NETWORK.** Disponível em: https://visjs.github.io/vis-network/docs/network/. Acesso em: 14/10/2024.
