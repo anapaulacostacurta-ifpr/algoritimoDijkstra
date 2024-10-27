@@ -29,8 +29,8 @@ async function addGraph() {
     var target = Math.floor(Math.random() * 11);
     if(source != target && target != source+1){
       carregarDados(source, target, weight);
-      carregarDados(source, source+1,weight);
     }
+    carregarDados(source, source+1,weight);
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
