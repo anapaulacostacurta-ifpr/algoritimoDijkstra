@@ -23,6 +23,7 @@ var graph = {};
 async function limparDados(){
   nodes = [];
   edges = [];   
+  var data = { nodes, edges };
 }
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
@@ -45,6 +46,7 @@ async function addGraph() {
 
 // Fase 1: Ler o arquivo e criar o grafo
 async function loadGraph() {
+  limparDados();
   const response = await fetch('./assets/data.txt');
   const text = await response.text();
   const lines = text.split('\n');
