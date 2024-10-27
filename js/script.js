@@ -26,9 +26,9 @@ async function addGraph() {
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
     const target = i+1;
-    nodes.push({ id: source, label: sorce.toString()});
+    nodes.push({ id: source, label: source.toString()});
     graph[source] = {};
-    edges.push({ from: source, to: targe, weight, label:weight.toString() });
+    edges.push({ from: source, to: target, weight, label:weight.toString() });
     graph[source][target] = weight;
     graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
   }
