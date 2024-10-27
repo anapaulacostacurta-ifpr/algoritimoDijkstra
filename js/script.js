@@ -19,9 +19,26 @@ const options =
 };
 const graph = {};
 
+async function addGraph(qtdeNos) {
+  // Constrói as arestas que formam o caminho mínimo
+  const weight = 1;
+  for (let i = 1; i < qtdeNos; i++) {
+    const source = i;
+    const target = i+1;
+    nodes.push({ id: source, label: sorce.toString()});
+    graph[source] = {};
+    edges.push({ from: source, to: targe, weight, label:weight.toString() });
+    graph[source][target] = weight;
+    graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
+  }
+  // Criar a visualização do grafo
+  return new vis.Network(container, data, options);
+}
+
+
 // Função para ler o arquivo e criar o grafo
-async function loadGraph(file) {
-  const response = await fetch(file);
+async function loadGraph() {
+  const response = await fetch('./assets/data.txt');
   const text = await response.text();
   const lines = text.split('\n');
 
@@ -136,5 +153,3 @@ function reconstructPath(previous, target) {
   return path;
 }
 
-// Carregar o grafo inicial
-const network = loadGraph('./assets/data.txt');
