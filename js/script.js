@@ -26,7 +26,7 @@ async function addGraph() {
   for (let i = 1; i < qtdeNos; i++) {
     var weight = 1;
     var source = i;
-    var target = Math.random *10 + 1;
+    var target = Math.floor(Math.random() * 11);
     carregarDados(source, target, weight);
     carregarDados(source, source+1,weight);
   }
