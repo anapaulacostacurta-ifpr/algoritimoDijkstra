@@ -66,18 +66,20 @@ async function loadGraph() {
 }
 
 function carregarDados(source, target, weight){
-  if (!edges.find(edges => edges.from === source && edges.to == target)){
-    if(!nodes.find(node => node.id === source)){
-      nodes.push({ id: source, label: source.toString()});
-      graph[source] = {};
+  if (source != 0){
+    if (!edges.find(edges => edges.from === source) || !edges.find(edges => edges.from === target){
+      if(!nodes.find(node => node.id === source)){
+        nodes.push({ id: source, label: source.toString()});
+        graph[source] = {};
+      }
+      if(!nodes.find(node => node.id === target)){
+        nodes.push({ id: target, label: target.toString()});
+        graph[target] = {};
+      }
+      edges.push({ from: source, to: target, weight, label:weight.toString() });
+      graph[source][target] = weight;
+      graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
     }
-    if(!nodes.find(node => node.id === target)){
-      nodes.push({ id: target, label: target.toString()});
-      graph[target] = {};
-    }
-    edges.push({ from: source, to: target, weight, label:weight.toString() });
-    graph[source][target] = weight;
-    graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
   }
 }
 
