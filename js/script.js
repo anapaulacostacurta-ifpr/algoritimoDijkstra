@@ -23,7 +23,7 @@ var graph = {};
 async function limparDados(){
   nodes = [];
   edges = [];   
-  var data = { nodes, edges };
+  data = { nodes, edges };
 }
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
 async function addGraph() {
