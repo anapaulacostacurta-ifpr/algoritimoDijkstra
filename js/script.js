@@ -23,6 +23,7 @@ const graph = {};
 async function addGraph() {
   node = [];
   edges = [];
+  data = { nodes, edges };
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
@@ -41,6 +42,9 @@ async function addGraph() {
 
 // Fase 1: Ler o arquivo e criar o grafo
 async function loadGraph() {
+  node = [];
+  edges = [];
+  data = { nodes, edges };
   const response = await fetch('./assets/data.txt');
   const text = await response.text();
   const lines = text.split('\n');
