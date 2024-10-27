@@ -27,11 +27,7 @@ async function addGraph() {
     var weight = 1;
     const parts = {};
     var source = i;
-    if(i/2==0 && i<=qtdeNos){
-      target = i+2;
-    }else{
-      target = i-2;
-    }
+    target = Math.random *10 + 1;
     carregarDados(source, target,weight);
     carregarDados(source, source+1,weight);
   }
