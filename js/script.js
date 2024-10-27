@@ -33,6 +33,7 @@ async function addGraph() {
       target = i-2;
     }
     carregarDados(source, target,weight);
+    carregarDados(source, source+1,weight);
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
