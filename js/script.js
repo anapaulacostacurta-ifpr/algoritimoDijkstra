@@ -26,9 +26,9 @@ async function addGraph() {
   for (let i = 1; i < qtdeNos; i++) {
     var weight = 1;
     var source = i;
-    target = Math.random *10 + 1;
+    var target = Math.random *10 + 1;
     carregarDados(source, target, weight);
-    //carregarDados(source, source+1,weight);
+    carregarDados(source, source+1,weight);
   }
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
