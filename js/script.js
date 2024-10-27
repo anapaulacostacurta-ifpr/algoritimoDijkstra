@@ -19,8 +19,8 @@ const options =
 };
 const graph = {};
 
-async function addGraph(qtdeNos) {
-  // Constrói as arestas que formam o caminho mínimo
+async function addGraph() {
+  const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   const weight = 1;
   for (let i = 1; i < qtdeNos; i++) {
     const source = i;
