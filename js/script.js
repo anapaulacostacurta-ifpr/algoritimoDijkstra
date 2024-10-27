@@ -30,8 +30,14 @@ async function addGraph() {
     const source = i;
     const target = i+1;
     const weight = 1;
-    nodes.push({ id: source, label: source.toString()});
-    graph[source] = {};
+    if(!nodes.find(node => node.id === source)){
+      nodes.push({ id: source, label: source.toString()});
+      graph[source] = {};
+    }
+    if(!nodes.find(node => node.id === target)){
+      nodes.push({ id: target, label: target.toString()});
+      graph[target] = {};
+    }
     edges.push({ from: source, to: target, weight, label:weight.toString() });
     graph[source][target] = weight;
     graph[target][source] = weight; 
