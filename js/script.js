@@ -46,7 +46,7 @@ async function addGraph() {
 
 // Fase 1: Ler o arquivo e criar o grafo
 async function loadGraph() {
-  limparDados();
+  //limparDados();
   const response = await fetch('./assets/data.txt');
   const text = await response.text();
   const lines = text.split('\n');
