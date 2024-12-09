@@ -26,7 +26,7 @@ async function limparDados(){
   data = { nodes, edges };
 }
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
-async function addGraph() {
+window.onload=async function addGraph() {
   limparDados();
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
@@ -45,7 +45,7 @@ async function addGraph() {
 
 
 // Fase 1: Ler o arquivo e criar o grafo
-async function loadGraph() {
+window.onload=async function loadGraph() {
   //limparDados();
   const response = await fetch('./assets/data.txt');
   const text = await response.text();
@@ -169,4 +169,3 @@ function reconstructPath(previous, target) {
 
   return path;
 }
-
