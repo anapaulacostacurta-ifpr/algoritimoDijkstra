@@ -45,10 +45,10 @@ function addGraph() {
 
 
 // Fase 1: Ler o arquivo e criar o grafo
-function loadGraph() {
+async function loadGraph() {
   //limparDados();
-  const response = fetch('./assets/data.txt');
-  const text = response.text();
+  const response = await fetch('./assets/data.txt');
+  const text = await response.text();
   const lines = text.split('\n');
 
   lines.forEach(line => {
