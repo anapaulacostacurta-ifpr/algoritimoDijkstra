@@ -67,7 +67,7 @@ window.onload=async function loadGraph() {
 
 function carregarDados(source, target, weight){
   if (source != 0){
-    if (!edges.find(edges => edges.from === source) || !edges.find(edges => edges.from === target){
+    if (!edges.find(edges => edges.from === source) || !edges.find(edges => edges.from === target)){
       if(!nodes.find(node => node.id === source)){
         nodes.push({ id: source, label: source.toString()});
         graph[source] = {};
