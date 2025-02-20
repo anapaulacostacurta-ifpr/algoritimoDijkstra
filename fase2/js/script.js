@@ -26,7 +26,7 @@ async function limparDados(){
   data = { nodes, edges };
 }
 //Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
-window.onload=async function addGraph() {
+async function addGraph() {
   limparDados();
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 1; i < qtdeNos; i++) {
@@ -38,27 +38,6 @@ window.onload=async function addGraph() {
     }
     carregarDados(source, source+1,weight);
   }
-  // Criar a visualização do grafo
-  new vis.Network(container, data, options);
-}
-
-// Fase 1: Ler o arquivo e criar o grafo
-async function loadGraph() {
-  //limparDados();
-  const response = await fetch('./assets/data.txt');
-  const text = await response.text();
-  const lines = text.split('\n');
-
-  lines.forEach(line => {
-    const parts = line.split(' ');
-    if (parts.length === 3) {
-      const source = parseInt(parts[0]);
-      const target = parseInt(parts[1]);
-      const weight = parseInt(parts[2]);
-      carregarDados(source, target,weight);
-    }
-  });
-
   // Criar a visualização do grafo
   new vis.Network(container, data, options);
 }
