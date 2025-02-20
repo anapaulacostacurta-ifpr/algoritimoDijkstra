@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizador de Grafos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <label> Fase 3: 
+        <input type="text" id="qtdeNos" placeholder="Quantidade nós">
+        <button onclick="addGraph()">Criar Grafo</button>
+    </label>
+    <div id="mynetwork"></div>
+    <div id="path"></div>
+    <div id="routing"></div>
+    <span><input type="text" id="source" placeholder="Origem">
+    <input type="text" id="target" placeholder="Destino">
+    <button onclick="findShortestPath()">Encontrar Caminho Mínimo</button><br></span>
+    <span><input type="text" id="nodeid" placeholder="Nó"><button onclick="movernode()">Mover Nó</button><br></span>
+    <script src="js/vis.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

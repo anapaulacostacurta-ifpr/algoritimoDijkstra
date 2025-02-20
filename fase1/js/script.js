@@ -1,9 +1,9 @@
 // script.js
 
-var nodes = [];
-var edges = [];
-var container = document.getElementById('mynetwork');
-var data = { nodes, edges };
+const nodes = [];
+const edges = [];
+const container = document.getElementById('mynetwork');
+const data = { nodes, edges };
 const options = 
 {
   edges:{
@@ -17,37 +17,11 @@ const options =
     }
   }
 };
-var graph = {};
+const graph = {};
 
-
-async function limparDados(){
-  nodes = [];
-  edges = [];   
-  data = { nodes, edges };
-}
-//Fase 2: Inclusão de qtde de nós e criar o grafico com distribuição aleatóriamente
-window.onload=async function addGraph() {
-  limparDados();
-  const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
-  for (let i = 1; i < qtdeNos; i++) {
-    var weight = 1;
-    var source = i;
-    var target = Math.floor(Math.random() * 11);
-    if(source != target && target != source+1){
-      carregarDados(source, target, weight);
-    }
-    carregarDados(source, source+1,weight);
-  }
-  // Criar a visualização do grafo
-  new vis.Network(container, data, options);
-}
-
-
-
-// Fase 1: Ler o arquivo e criar o grafo
-window.onload=async function loadGraph() {
-  //limparDados();
-  const response = await fetch('./assets/data.txt');
+// Função para ler o arquivo e criar o grafo
+async function loadGraph(file) {
+  const response = await fetch(file);
   const text = await response.text();
   const lines = text.split('\n');
 
@@ -57,17 +31,6 @@ window.onload=async function loadGraph() {
       const source = parseInt(parts[0]);
       const target = parseInt(parts[1]);
       const weight = parseInt(parts[2]);
-      carregarDados(source, target,weight);
-    }
-  });
-
-  // Criar a visualização do grafo
-  new vis.Network(container, data, options);
-}
-
-function carregarDados(source, target, weight){
-  if (source != 0){
-    if (!edges.find(edges => edges.from === source) || !edges.find(edges => edges.from === target){
       if(!nodes.find(node => node.id === source)){
         nodes.push({ id: source, label: source.toString()});
         graph[source] = {};
@@ -80,7 +43,10 @@ function carregarDados(source, target, weight){
       graph[source][target] = weight;
       graph[target][source] = weight; // Supondo que o grafo seja não-direcionado
     }
-  }
+  });
+
+  // Criar a visualização do grafo
+  return new vis.Network(container, data, options);
 }
 
 // Função para encontrar o caminho mínimo
@@ -93,7 +59,7 @@ function findShortestPath() {
   // Reconstrói o caminho mínimo de A até D
   const path = reconstructPath(previous, target);
 
-  window.alert("Caminho mínimo: "+ path); // Exibe o caminho mínimo
+  window.alert("Caminho mínimo: "+path); // Exibe o caminho mínimo
   console.log("Caminho mínimo:", path);
   
   // Suponha que 'network' e 'data' sejam as variáveis que representam o grafo visualizado
@@ -169,3 +135,6 @@ function reconstructPath(previous, target) {
 
   return path;
 }
+
+// Carregar o grafo inicial
+const network = loadGraph('./assets/data.txt');
