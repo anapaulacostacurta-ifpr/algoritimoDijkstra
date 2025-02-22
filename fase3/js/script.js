@@ -36,10 +36,10 @@ async function limparDados(){
 async function addGraph() {
   limparDados();
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
-  for (let i = 1; i < qtdeNos; i++) {
-    var weight = Math.floor(Math.random() * 2);; //Métrica aditiva: (atraso )
+  for (let i = 0; i < qtdeNos; i++) {
+    var weight = Math.floor(Math.random() * 10);; //Métrica aditiva: (atraso )
     var source = i;
-    for (let j = 1; j<qtdeNos; j++){
+    for (let j = 0; j<qtdeNos; j++){
       var target = j;
       carregarDados(source, target, weight);
       carregarDados(source, target+1, weight);
