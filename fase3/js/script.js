@@ -42,12 +42,14 @@ async function addGraph() {
     var target = i+1;
     if(target <qtdeNos){
       if(source>0){
+        carregarDados(source, target, weight+5);
+        carregarDados(target, source, weight+5);
         carregarDados(source, target+1, weight+3);
       }else{
         if(source==qtdeNos){
           carregarDados(source, source-1, weight+2);
         }else{
-          carregarDados(source,target, weight)+5;
+          carregarDados(source,target, weight+5);
         }
       }
     }
