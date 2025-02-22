@@ -37,13 +37,11 @@ async function addGraph() {
   limparDados();
   const qtdeNos = parseInt(document.getElementById('qtdeNos').value);
   for (let i = 0; i < qtdeNos; i++) {
-    var weight = Math.floor(Math.random() * 10);; //Métrica aditiva: (atraso )
+    var weight = Math.floor(Math.random() * 2);; //Métrica aditiva: (atraso )
     var source = i;
-    for (let j = 0; j<qtdeNos; j++){
-      var target = j;
+    var target = i+1;
+    if(target <qtdeNos){
       carregarDados(source, target, weight);
-      carregarDados(source, target+1, weight);
-      j++;
     }
   }
   // Criar a visualização do grafo
