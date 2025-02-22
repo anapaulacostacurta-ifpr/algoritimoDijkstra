@@ -39,9 +39,16 @@ async function addGraph() {
   for (let i = 0; i < qtdeNos; i++) {
     var weight = Math.floor(Math.random() * 2);; //Métrica aditiva: (atraso )
     var source = i;
-    var target = i+1;
     if(target <qtdeNos){
-      carregarDados(source, target, weight);
+      if(source>0){
+        carregarDados(source, source+2, weight+3);
+      }else{
+        if(source==qtdeNos){
+          carregarDados(source, source-1, weight+2);
+        }else{
+          carregarDados(source, source+1, weight)+5;
+        }
+      }
     }
   }
   // Criar a visualização do grafo
